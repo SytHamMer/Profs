@@ -7,7 +7,8 @@ def clean_name(name):
     Returns:
         tuple: a tuple with one x people
     """
-    
+    #Lorsque que les enseignants rentrent ces informations dans le site il n'y a pas de nomenclature précise
+    #Il faut donc effectuer tous les cas possibles afin d'obtenir les données les plus propres possibles
     #remove space before and after
     res = []
     name = name.lower()
@@ -48,6 +49,14 @@ def clean_name(name):
 
 
 def clean_mat(mat):
+    """clean mat 
+
+    Args:
+        mat (String): matière
+
+    Returns:
+        String: matière sans les accents
+    """
     if "é" in mat:
         mat = mat.replace('é','e')
     if "è" in mat:
@@ -56,11 +65,15 @@ def clean_mat(mat):
         mat = mat.replace('ê','e')
     return mat
     
-#Néttoyage important, espace, et etc mais corriger les fautes de frappes 'philipe' et 'philippe' par exemple trop précis et "e" pour "emmanuel" mais aussi ernard et non bernard
+#Néttoyage important, espace, et etc mais 
+# corriger les fautes de frappes 'philipe' et 'philippe' par exemple trop précis 
+# et "e" pour "emmanuel" mais aussi ernard et non bernard
+#Ces erreurs sont donc laissées telle qu'elle.
 #tout accents remplacé par e 
 
 
 if __name__ == "__main__":
+    #Voici simplement des exemple de teste de la fonction afin de déterminer son bon fonctionnement.
     print(clean_name(" Bonjour.  et èèeèrè "))    
     print(clean_name("Hervé et Josêph.")) 
     print(clean_name("Bonjour./Aurevoir")) 
